@@ -23,10 +23,7 @@ import handleValidationErrors from "./validations/handleValidationErrors.js";
 // Mongo connect
 mongoose
   .connect(
-    process.env.MONGODB_URI || "mongodb+srv://kinolov3:WxLTE1xTI8TkX1Kb@blog.wtrdoix.mongodb.net/twitter?retryWrites=true&w=majority", {
-      useUnifiedTopology:true,
-      useNewUrlParser: true,
-  }
+    process.env.MONGODB_URI || "mongodb+srv://kinolov3:WxLTE1xTI8TkX1Kb@blog.wtrdoix.mongodb.net/twitter?retryWrites=true&w=majority"
   ) 
   .then(() => console.log("Mongo is GOOD"))
   .catch((err) => console.log("Mongo is NOT GOOD \n" + err));
