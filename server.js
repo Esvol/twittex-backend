@@ -5,6 +5,7 @@ import cors from 'cors'
 import path from "path";
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
+import fs from 'fs'
 
 import {
   commentCreateValidator,
@@ -34,6 +35,9 @@ const __dirname = dirname(__filename);
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
+    if (!fs.existsSync('uploads')){
+      fs.mkdirSync('uploads')
+    }
     cb(null, 'uploads');
   },
   filename: (req, file, cb) => {
